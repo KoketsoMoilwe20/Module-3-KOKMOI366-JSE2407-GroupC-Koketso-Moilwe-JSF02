@@ -3,6 +3,8 @@
     import { writable } from 'svelte/store';
     import {Link} from "svelte-routing"
     import { selectedCategory, searchQuery, sortOption } from '../store';
+
+    import Sort from '../Sort.svelte';
   
     const products = writable([]);
     let isLoading = true;
@@ -56,7 +58,7 @@
   </script>
   
   <style>
-    /* ... (styles remain the same) ... */
+
   </style>
   
   <div class="filters-and-sort">

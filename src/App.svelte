@@ -2,7 +2,7 @@
     import {Router, Link, Route} from "svelte-routing"
     import Header from "./Components/Header.svelte";
     import ProductList from "./Components/Products/ProductList.svelte";
-    import {selectedCategory, searchQuery, sortOption} from "./Components/ProductStore/store";
+    import {selectedCategory, searchQuery, sortOption} from "./Components/store";
     import {onMount} from "svelte";
 
     export let url = "";
