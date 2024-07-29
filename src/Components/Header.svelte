@@ -8,7 +8,7 @@
 
 <header>
     <div>
-        <img src="../assets/online-shop.png"/>
+        <img src="../assets/online-shop.png" />
         <h1>SwiftCart</h1>
     </div>
 
