@@ -76,7 +76,7 @@
         on:input={handleSearchChange}
       />
     </div>
-    <Sort onSort={handleSort} currentSort={$sortOption} />
+    <Sort onSort={handleSort} />
   </div>
   
   {#if isLoading}

@@ -5,7 +5,7 @@
   
     function handleSort(event) {
       sortOption.set(event.target.value);
-      onSort($sortOption);
+      onSort(event.target.value);
     }
   </script>
   
