@@ -22,3 +22,24 @@
   
     $: backUrl = `/?category=${$selectedCategory}&search=${$searchQuery}&sort=${$sortOption}`;
 </script>
+
+{#if isLoading}
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+  {:else if product}
+    <div class="modal-content">
+      <img src={product.image} alt={product.title} />
+      <h2>{product.title}</h2>
+      <div class="product-details">
+        <p><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+        <p><strong>Category:</strong> {product.category}</p>
+        <p><strong>Rating:</strong> {product.rating.rate} ★ ({product.rating.count} reviews)</p>
+        <p><strong>Description:</strong> {product.description}</p>
+      </div>
+      <button class="add-to-cart">Add to Cart</button>
+      <Link to={backUrl} class="back-link">Back to Results</Link>
+    </div>
+  {:else}
+    <p>Error loading product. Please try again.</p>
+  {/if}
