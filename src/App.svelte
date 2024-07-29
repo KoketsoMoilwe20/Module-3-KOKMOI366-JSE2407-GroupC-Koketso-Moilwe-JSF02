@@ -5,7 +5,14 @@
     import {selectedCategory, searchQuery, sortOption} from "./Components/ProductStore/store";
     import {onMount} from "svelte";
 
-    
+    export let url = "";
+
+  onMount(() => {
+    const params = new URLSearchParams(window.location.search);
+    selectedCategory.set(params.get('category') || '');
+    searchQuery.set(params.get('search') || '');
+    sortOption.set(params.get('sort') || 'default');
+  });
 </script>
 
 <style>
