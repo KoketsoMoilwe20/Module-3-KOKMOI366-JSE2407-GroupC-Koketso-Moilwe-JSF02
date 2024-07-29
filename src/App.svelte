@@ -16,9 +16,13 @@
 </script>
 
 <style>
-    
+
 </style>
 
-<Router>
+<Router {url}>
     <Header />
+
+    <main>
+        <Route path="/" component={ProductList} />
+    </main>
 </Router>
