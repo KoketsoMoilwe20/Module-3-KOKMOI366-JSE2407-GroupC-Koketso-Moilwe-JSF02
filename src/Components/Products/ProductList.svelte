@@ -1,7 +1,10 @@
 <script>
 
     import {selectedCategory, searchQuery, sortOption} from "../ProductStore/store"
-    
+
+    function handleCategoryChange(event) {
+      selectedCategory.set(event.target.value);
+    }
 </script>
 
 <style>
