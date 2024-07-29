@@ -1,5 +1,8 @@
 <script>
 
+    import { onMount } from 'svelte';
+    import { writable } from 'svelte/store';
+
     import {selectedCategory, searchQuery, sortOption} from "../ProductStore/store"
 
     function handleCategoryChange(event) {
