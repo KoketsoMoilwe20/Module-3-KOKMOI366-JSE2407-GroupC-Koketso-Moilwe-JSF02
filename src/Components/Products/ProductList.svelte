@@ -22,19 +22,39 @@
       }
     })
 
+    $: filteredProducts = $products.filter(product => {
+      return (!$selectedCategory || product.category === $selectedCategory) &&
+             (!$searchQuery || product.title.toLowerCase().includes($searchQuery.toLowerCase()));
+    });
+
+    $: categories = [...new Set($products.map(product => product.category))];
+
     function handleCategoryChange(event) {
       selectedCategory.set(event.target.value);
+    }
+
+    function handleSearchChange(event) {
+      searchQuery.set(event.target.value);
     }
 </script>
 
 
+<div class="filters">
+    <select bind:value={$selectedCategory} on:change={handleCategoryChange}>
+      <option value="">All categories</option>
+      {#each categories as category}
+        <option value={category}>{category}</option>
+      {/each}
+    </select>
+    <input 
+      type="text" 
+      placeholder="Search products..." 
+      bind:value={$searchQuery}
+      on:input={handleSearchChange}
+    />
+  </div>
 
-<style>
-
-</style>
-
-
-
+  <!-- Product Display -->
 {#if isLoading}
     <p>Loading products...</p>
 {:else}
