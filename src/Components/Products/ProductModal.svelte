@@ -23,23 +23,41 @@
     $: backUrl = `/?category=${$selectedCategory}&search=${$searchQuery}&sort=${$sortOption}`;
 </script>
 
+<style>
+    .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3490dc;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
 {#if isLoading}
-    <div class="loading-spinner">
+    <div class="flex justify-center items-center h-screen">
       <div class="spinner"></div>
     </div>
   {:else if product}
-    <div class="modal-content">
-      <img src={product.image} alt={product.title} />
-      <h2>{product.title}</h2>
-      <div class="product-details">
-        <p><strong>Price:</strong> ${product.price.toFixed(2)}</p>
-        <p><strong>Category:</strong> {product.category}</p>
-        <p><strong>Rating:</strong> {product.rating.rate} ★ ({product.rating.count} reviews)</p>
-        <p><strong>Description:</strong> {product.description}</p>
+    <div class="modal-content flex bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto p-6">
+      <div class="flex-shrink-0 w-1/2">
+        <img src={product.image} alt={product.title} class="w-full h-full object-cover rounded-lg" />
       </div>
-      <button class="add-to-cart">Add to Cart</button>
-      <Link to={backUrl} class="back-link">Back to Results</Link>
+      <div class="flex-grow pl-6">
+        <h2 class="text-2xl font-bold mb-4">{product.title}</h2>
+        <p class="text-lg font-semibold mb-2"><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+        <p class="text-lg font-semibold mb-2"><strong>Category:</strong> {product.category}</p>
+        <p class="text-lg font-semibold mb-2"><strong>Rating:</strong> {product.rating.rate} ★ ({product.rating.count} reviews)</p>
+        <p class="text-lg mb-4"><strong>Description:</strong> {product.description}</p>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Add to Cart</button>
+        <Link to={backUrl} class="block mt-4 text-blue-500 hover:underline">Back to Results</Link>
+      </div>
     </div>
   {:else}
-    <p>Error loading product. Please try again.</p>
+    <p class="text-center">Error loading product. Please try again.</p>
   {/if}
