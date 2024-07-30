@@ -74,7 +74,7 @@
 </style>
 
 <div class="filters-and-sort mb-8">
-    <div class="filters flex space-x-4 mb-4">
+    <div class="flex items-center justify-center space-x-4 mb-4">
       <select bind:value={$selectedCategory} on:change={handleCategoryChange} class="bg-white border border-gray-300 rounded-md px-4 py-2">
         <option value="">All categories</option>
         {#each categories as category}
