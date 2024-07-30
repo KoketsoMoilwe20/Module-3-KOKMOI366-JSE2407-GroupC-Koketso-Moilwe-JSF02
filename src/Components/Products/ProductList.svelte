@@ -58,7 +58,10 @@
   </script>
   
   <style>
-
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+    }
   </style>
   
   <div class="filters-and-sort">
