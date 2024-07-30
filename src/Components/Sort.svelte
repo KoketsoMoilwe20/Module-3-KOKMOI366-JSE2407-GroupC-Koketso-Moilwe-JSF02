@@ -20,11 +20,15 @@
     }
   </style>
   
-  <div class="sort-container">
-    <label for="sort-select">Sort by: </label>
-    <select id="sort-select" bind:value={$sortOption} on:change={handleSort}>
-      <option value="default">Default</option>
-      <option value="low-to-high">Price: Low to High</option>
-      <option value="high-to-low">Price: High to Low</option>
-    </select>
+  <div class="sort-container flex justify-center mt-4">
+
+    <div class="sort-container flex justify-center mt-4">
+        <label for="sort-select">Sort by: </label>
+        <select id="sort-select" bind:value={$sortOption} on:change={handleSort}>
+        <option value="default">Default</option>
+        <option value="low-to-high">Price: Low to High</option>
+        <option value="high-to-low">Price: High to Low</option>
+        </select>
+    </div>
+    
   </div>
