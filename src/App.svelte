@@ -3,7 +3,7 @@
     import Header from "./Components/Header.svelte";
     import ProductList from "./Components/Products/ProductList.svelte";
     import ProductModal from "./Components/Products/ProductModal.svelte";
-    import {selectedCategory, searchQuery, sortOption} from "./Components/store";
+    import {selectedCategory, searchQuery, sortOption} from "./Components/ProductStore/store";
     import {onMount} from "svelte";
 
     export let url = "";
@@ -16,9 +16,6 @@
   });
 </script>
 
-<style>
-
-</style>
 
 <Router {url}>
     <Header />

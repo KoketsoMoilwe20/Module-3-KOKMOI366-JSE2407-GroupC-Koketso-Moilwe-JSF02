@@ -1,5 +1,5 @@
 <script>
-    import { sortOption } from '../Components/store';
+    import { sortOption } from './ProductStore/store';
   
     export let onSort;
   

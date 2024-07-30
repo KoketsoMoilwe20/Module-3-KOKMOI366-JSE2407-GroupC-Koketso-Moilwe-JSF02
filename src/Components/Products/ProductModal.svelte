@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { Link } from "svelte-routing";
 
-    import { selectedCategory, searchQuery, sortOption } from "../store"
+    import { selectedCategory, searchQuery, sortOption } from "../ProductStore/store"
 
     export let id;
     let product = null;

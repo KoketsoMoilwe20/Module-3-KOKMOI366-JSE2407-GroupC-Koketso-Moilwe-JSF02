@@ -70,7 +70,7 @@
   
   <header>
     <div class="logo">
-      <img src="../assets/online-shop.png" alt="Logo" />
+      <img src="../online-shop.png" alt="Logo" />
       <h1>SwiftCart</h1>
     </div>
     <div class="hamburger" on:click={toggleMenu}>
