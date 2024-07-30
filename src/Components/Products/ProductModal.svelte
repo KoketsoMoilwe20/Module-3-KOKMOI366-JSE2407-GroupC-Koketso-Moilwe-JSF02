@@ -24,6 +24,13 @@
 </script>
 
 <style>
+    button {
+        background-color: #F7B318;
+    }
+
+    button:hover {
+        background-color: #F39C12;
+    }
     .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-top: 4px solid #3490dc;

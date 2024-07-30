@@ -16,6 +16,15 @@
   });
 </script>
 
+<style>
+
+    main {
+        background-color: #C8E0CA;
+        min-height: 100vh;
+    }
+    
+</style>
+
 
 <Router {url}>
     <Header />
