@@ -8,6 +8,8 @@
     let product = null;
     let isLoading = true;
 
+
+    // Fetch the product data from the API when the component mounts
     onMount(async () => {
       try {
         const res = await fetch(`https://fakestoreapi.com/products/${id}`);
