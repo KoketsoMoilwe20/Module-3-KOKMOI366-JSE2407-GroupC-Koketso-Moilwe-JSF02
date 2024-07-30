@@ -5,10 +5,11 @@
   import { selectedCategory, searchQuery, sortOption } from '../ProductStore/store';
   import Sort from '../Sort.svelte';
 
-
+// Created a writable store to hold the products data
   const products = writable([]);
   let isLoading = true;
 
+  // Fetch the products data from the API when the component mounts
   onMount(async () => {
     try {
       const res = await fetch('https://fakestoreapi.com/products');
@@ -23,27 +24,34 @@
     }
   });
 
+  // Reactive statement to filter products based on selected category and search query
   $: filteredProducts = $products.filter(product => {
     return (!$selectedCategory || product.category === $selectedCategory) &&
            (!$searchQuery || product.title.toLowerCase().includes($searchQuery.toLowerCase()));
   });
 
+  // Reactive statement to sort the filtered products based on the selected  sort option
   $: sortedProducts = sortProducts(filteredProducts, $sortOption);
 
+  // Reactive statement to get a unique list of categories from the products
   $: categories = [...new Set($products.map(product => product.category))];
 
+  //Handle category selection change
   function handleCategoryChange(event) {
     selectedCategory.set(event.target.value);
   }
 
+    // Handle search query input change
   function handleSearchChange(event) {
     searchQuery.set(event.target.value);
   }
 
+  //Handle sorting option change
   function handleSort(option) {
     sortOption.set(option);
   }
 
+  //Function to sort products based on the selected sorting option
   function sortProducts(products, option) {
     let sortedProducts = [...products];
     switch (option) {
