@@ -28,17 +28,20 @@
       display: flex;
       gap: 2rem;
     }
-    .menu a {
+    /* .menu a {
       color: white;
       text-decoration: none;
     }
     .menu a:hover {
       text-decoration: underline;
-    }
+    } */
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
     }
     .hamburger span {
       height: 2px;
@@ -79,11 +82,17 @@
             </button>
           </Link>
     </div>
-    <div class="hamburger" on:click={toggleMenu}>
+    <button 
+    class="hamburger" 
+    on:click={toggleMenu}
+    on:keydown={(e) => e.key === 'Enter' && toggleMenu()}
+    aria-expanded={isMenuOpen}
+    aria-label="Toggle menu"
+    >
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
     <nav class:open={isMenuOpen}>
       
       <Link to="/wishlist">Wishlist</Link>
