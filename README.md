@@ -1,47 +1,65 @@
-# Svelte + Vite
+# SwiftCart E-Commerce Store
 
-This template should help get you started developing with Svelte in Vite.
+SwiftCart is a modern e-commerce store built using Svelte.js and Tailwind CSS.
 
-## Recommended IDE Setup
+# Table of Contents
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- Introduction
+- Technologies Used
+- Setup Instructions
+- Usage
 
-## Need an official Svelte framework?
+# Introduction
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+SwiftCart is a fully-functional e-commerce application designed to provide shopping experience. Key components and features include:
 
-## Technical considerations
+    * Product Listing with Category filtering and Search Functionality
+    * Product details and modal views
+    * Sort Component that sorts products by prices
+    * Responsive design that is suitable for various devices
+    * Simple UI with Tailwind CSS
 
-**Why use this over SvelteKit?**
+# Technologies Used
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- **Svelte.js**: A modern JavaScript framework for building fast and reactive user interfaces. Svelte compiles components into highly efficient imperative code, resulting in a smaller bundle size and faster performance.
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+- **Tailwind CSS**: A utility-first CSS framework that provides low-level utility classes to build custom designs without leaving your HTML.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+- **Svelte Routing**: A routing library for handling navigation within the Svelte application.
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+- **Fetch API**: Used for making HTTP requests to fetch product data from Fake Store API
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+# Setup Instructions
 
-**Why include `.vscode/extensions.json`?**
+**Prerequisites**
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+Before you begin, ensure you have the following installed:
 
-**Why enable `checkJs` in the JS template?**
+- Node.js
+- npm (Node package manager)
 
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+To access my project, please follow these steps:
 
-**Why is HMR not preserving my local component state?**
+    1. Download the repository as a zip folder
+    2. Run `npm install` to install dependencies
+    3. Run `npm run dev` to launch the live server
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
+# Usage
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+1. **Category Filter**:
 
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+   - To select a category, simply choose one from the dropdown. The list of products will automatically update to show only those in the selected category.
+
+2. **Search Filter**:
+
+   - An input field enables you to search for products by their title.
+
+   - Type any keyword into the search box, and the product list will update to display products whose titles contain the entered keyword.
+
+3. **Sorting Options**:
+
+   - This part allows you to sort products by price, either from low to high or high to low. Choose the sorting option from the dropdown in the Sort component, and the products will be sorted accordingly.
+
+   **Features Included**:
+   a. Loading Spinner: While the products are being fetched from the API, a loading spinner will be displayed.
+   b. Responsive Grid Layout: Products are displayed in a responsive grid layout that adjusts the number of columns based on the screen size.
